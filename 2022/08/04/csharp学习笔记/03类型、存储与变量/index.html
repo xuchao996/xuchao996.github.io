@@ -1,0 +1,74 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content=""><title>03 类型、存储和变量 | Hexo</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/latest/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/latest/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/latest/grids-responsive-min.min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/latest/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/latest/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/latest/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/latest/toastr.min.css"><meta name="generator" content="Hexo 6.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">03 类型、存储和变量</h1><a id="logo" href="/.">Hexo</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/about/"><i class="fa fa-user"> About</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">03 类型、存储和变量</h1><div class="post-meta">2022-08-04<span> | </span><span class="category"><a href="/categories/Csharp/">Csharp</a></span></div><div class="post-content"><h3 id="什么是类型？"><a href="#什么是类型？" class="headerlink" title="什么是类型？"></a>什么是类型？</h3><p>类型是一种模板，是一种设定。</p>
+<p>类型由三个元素定义：</p>
+<ul>
+<li>名称 – short – int</li>
+<li>结构 – 2 字节 – 4 字节</li>
+<li>行为 – 16 位整数 – 32 位整数</li>
+</ul>
+<h4 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h4><p>可以是系统自带</p>
+<p>也可以是自定义</p>
+<p><strong>在 C#中，每个数据项都是某种类型的实例。</strong></p>
+<p>也就是说，我们正常声明的变量、常量其实都是某种类型实例化的体现。</p>
+<h3 id="C-的类型"><a href="#C-的类型" class="headerlink" title="C# 的类型"></a>C# 的类型</h3><h4 id="1-预定义类型（共-16-种）"><a href="#1-预定义类型（共-16-种）" class="headerlink" title="1. 预定义类型（共 16 种）"></a>1. 预定义类型（共 16 种）</h4><p><img src="https://cdn.jsdelivr.net/gh/xuchao996/gallary@main/imgs/image-20220804141712625.png" alt="image-20220804141712625"></p>
+<ul>
+<li><h5 id="简单类型"><a href="#简单类型" class="headerlink" title="简单类型"></a><strong>简单类型</strong></h5><ul>
+<li>数值类型<ul>
+<li>整型（有无符号）</li>
+<li>浮点型</li>
+<li>decimal 的高精度小数</li>
+</ul>
+</li>
+<li>布尔类型（bool）</li>
+<li>一种 Unicode 字符类型 char</li>
+</ul>
+</li>
+<li><h5 id="非简单类型"><a href="#非简单类型" class="headerlink" title="非简单类型"></a><strong>非简单类型</strong></h5><ul>
+<li>string</li>
+<li>object</li>
+<li>dynamic</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-用户定义类型"><a href="#2-用户定义类型" class="headerlink" title="2. 用户定义类型"></a>2. 用户定义类型</h4><blockquote>
+<p>C# 提供以下 6 种类型去支持用户自定义。分别是：</p>
+</blockquote>
+<blockquote>
+<p><strong>struct enum 是值类型，其他为引用类型</strong></p>
+</blockquote>
+<p> 类 class</p>
+<p> 结构类型 struct – 值类型</p>
+<p> 数组 array</p>
+<p> 枚举 enum – 值类型</p>
+<p> 委托 delegate</p>
+<p> 接口 interface</p>
+<h3 id="堆和栈"><a href="#堆和栈" class="headerlink" title="堆和栈"></a>堆和栈</h3><p>都是内存里的一片空间。</p>
+<p>数据的类型一般分为两种</p>
+<blockquote>
+<p>数据的类型决定了在内存中的存储方式。</p>
+</blockquote>
+<ol>
+<li>值类型（存放在栈里）</li>
+<li>引用类型（<strong>引用</strong>存放在栈里，<strong>值</strong>存放在堆里）</li>
+</ol>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><h5 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h5><blockquote>
+<p>变量在使用之前必须声明</p>
+</blockquote>
+<p>完成两件事</p>
+<ul>
+<li>给变量命名，关联一种类型 int var2；</li>
+<li>分配一块内存空间</li>
+</ul>
+<h6 id="多变量声明-–-int-var3-x3D-1-var4-var5-x3D-2"><a href="#多变量声明-–-int-var3-x3D-1-var4-var5-x3D-2" class="headerlink" title="多变量声明 – int var3 &#x3D; 1, var4, var5 &#x3D; 2;"></a>多变量声明 – int var3 &#x3D; 1, var4, var5 &#x3D; 2;</h6><p>使用变量</p>
+<h3 id="dynamic"><a href="#dynamic" class="headerlink" title="dynamic"></a>dynamic</h3><p>C#本身是静态类型语言，但是.NET 为了支持其他语言的动态性，添加了关键字 dynamic。</p>
+<p>在编译时不做解析，到运行时再做。</p>
+</div><div class="tags"></div><div class="post-nav"><a class="pre" href="/2022/08/05/csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/06%E7%B1%BB%E6%89%A9%E5%B1%95/">06类-深入理解</a><a class="next" href="/2022/08/04/csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/05%E5%87%BD%E6%95%B0or%E6%96%B9%E6%B3%95/">05 方法</a></div><div id="container"></div><link rel="stylesheet" type="text/css" href="//unpkg.com/gitalk/dist/gitalk.css"><script type="text/javascript" src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script><script type="text/javascript" src="//unpkg.com/gitalk/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+  clientID: '9d5ad13a334931713df4',
+  clientSecret: '6946544a60449c48ad4e4cd7bc1e31168636f522',
+  repo: 'gitalk-comments',
+  owner: 'xuchao996',
+  admin: ['xuchao996'],
+  id: md5(location.pathname),
+  distractionFreeMode: false
+})
+gitalk.render('container')
+</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://example.com"/></form></div><div class="widget"><div class="author-info"><a class="info-avatar" href="/about/" title="About"><img src="/img/avatar.png"/></a><p>To be a better man.</p><a class="info-icon" href="https://twitter.com/username" title="Twitter" target="_blank" style="margin-inline:5px"> <i class="fa fa-twitter-square" style="margin-inline:5px"></i></a><a class="info-icon" href="mailto:admin@domain.com" title="Email" target="_blank" style="margin-inline:5px"> <i class="fa fa-envelope-square" style="margin-inline:5px"></i></a><a class="info-icon" href="https://github.com/username" title="Github" target="_blank" style="margin-inline:5px"> <i class="fa fa-github-square" style="margin-inline:5px"></i></a><a class="info-icon" href="atom.xml" title="RSS" target="_blank" style="margin-inline:5px"> <i class="fa fa-rss-square" style="margin-inline:5px"></i></a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Csharp/">Csharp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/other/">other</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/markdown/" style="font-size: 15px;">markdown</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/08/08/%E5%BE%AE%E5%89%8D%E7%AB%AF-qiankun/">微前端-qiankun</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/08/csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/09%E6%95%B0%E7%BB%84/">09 数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/08/csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/10%E8%AF%AD%E5%8F%A5/">10 语句</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/07/csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/08%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/">csharp学习笔记/08表达式和运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/07/csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/07%E7%B1%BB%E5%92%8C%E7%BB%A7%E6%89%BF/">csharp学习笔记/07类和继承</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/05/csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/06%E7%B1%BB%E6%89%A9%E5%B1%95/">06类-深入理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/04/csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/03%E7%B1%BB%E5%9E%8B%E3%80%81%E5%AD%98%E5%82%A8%E4%B8%8E%E5%8F%98%E9%87%8F/">03 类型、存储和变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/04/csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/05%E5%87%BD%E6%95%B0or%E6%96%B9%E6%B3%95/">05 方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/04/csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/04%E7%B1%BB/">04 类</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/04/csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/02%E6%BA%AF%E6%BA%90%EF%BC%9ACSharp%E7%9A%84%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/">02 溯源：CSharp的运行环境</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2022 <a href="/." rel="nofollow">Hexo.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/latest/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/latest/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js?v=1.0.0" successtext="Copy Successed!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css?v=1.0.0"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>
