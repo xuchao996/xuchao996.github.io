@@ -1,0 +1,57 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="生活、笔记、其他"><title>textToImg实操 | 徐的个人网站</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/latest/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/latest/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/latest/grids-responsive-min.min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/latest/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/latest/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/latest/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/latest/toastr.min.css"><meta name="generator" content="Hexo 6.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">textToImg实操</h1><a id="logo" href="/.">徐的个人网站</a><p class="description">记录一个人，爱一个人</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/about/"><i class="fa fa-user"> About</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">textToImg实操</h1><div class="post-meta">2023-05-04</div><div class="post-content"><blockquote>
+<p>无意间刷B站获取到知识。在线服务器运行模型。生成可爱的<del>妹子图片</del>（爱了爱了）。说干就干。</p>
+</blockquote>
+<h1 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h1><ol>
+<li>首先通过<a target="_blank" rel="noopener" href="https://github.com/camenduru/stable-diffusion-webui-colab#-colab">GitHub stable_diffusion_webui_colab</a> 进入到云服务器，选哪一个应该都行；</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/xuchao996/gallary@main/imgs/image-20230504215421410.png" alt="image-20230504215421410"></p>
+<ol start="2">
+<li><p><strong>执行</strong>云服务器提前准备好的Python 代码（这里不用想了，因为好像都是Python写的）；</p>
+</li>
+<li><p>点击执行按钮后（小三角按钮），过程会很久 – loading</p>
+</li>
+<li><p>脚本执行完成之后会产生一个IP地址（类似于我这样的<code>http://3oxdianfrmrgn3grbrzbqjvn2k2qyfid6mkwxld3eyf62xqrfnxq.remote.moe/?__theme=dark</code>）</p>
+</li>
+<li><p>点击打开，或者复制到浏览器打开，可以看到一整个可视界面</p>
+</li>
+<li><p>这里我需要介绍另一个网站<a target="_blank" rel="noopener" href="https://civitai.com/">C站</a>，大家可以搜索一下。这个网站主要提供了生成式图片的prompt，而我们可以拿到这个prompt 也可以去生成这样一些萌妹。类似于这样。</p>
+</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/xuchao996/gallary@main/imgs/image-20230504204815468.png" alt="image-20230504204815468"></p>
+<ol start="7">
+<li>点击一张图片进去，在右下角可以看到Prompt。而Resource 代表着使用模型。比如下图的女孩。</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/xuchao996/gallary@main/imgs/image-20230504211822718.png" alt="image-20230504211822718"></p>
+<ol start="8">
+<li>回到第四点，打开网站之后，也可以找到 <code>civitai</code>。经历以下6步。</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/xuchao996/gallary@main/imgs/image-20230504212909836.png" alt="image-20230504212909836"></p>
+<ol start="9">
+<li><p>点击下载模型后，我们需要回到脚本页面去观察是否下载完成。</p>
+</li>
+<li><p>下载完成之后，我们需要刷新我们的UI 界面，或者不用刷新，切换左上角的checkpoint。选择这张图片使用过调优后的模型。然后选择text2Img。在这里去输入相关参数。</p>
+</li>
+<li><p>后面应该都比较傻瓜了，就是把参数整个拷过来，点击生成。</p>
+</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/xuchao996/gallary@main/imgs/image-20230504214332172.png" alt="image-20230504214330131"></p>
+<h1 id="坑或者槽点"><a href="#坑或者槽点" class="headerlink" title="坑或者槽点"></a>坑或者槽点</h1><ol>
+<li>网络很关键，我51在老家跑的时候一直很稳定， 不会出现脚本跑步下来的情况，但是回到SH 以后确实跑步下来，然后我把节点切到香港，但是也就成功了一次，后面的下载模型就挂了。所以需要一个稳定的节点，最好是在欧美。</li>
+<li>我没注意到的一点是下载模型切模型时，需要刷新整个webUI。然后才能把下载后的模型倒进去。其实这也是有一个刷新icon的原因。我完全没意识到。</li>
+<li>C站黄图太多了，其实这也是一个问题，后面生成H图成本应该拉的很低了，可能就是一两句话，换脸，Sex 什么的，xdm 慎重。</li>
+</ol>
+<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><p>stable_diffusion_webui_colab <a target="_blank" rel="noopener" href="https://github.com/camenduru/stable-diffusion-webui-colab#-colab">https://github.com/camenduru/stable-diffusion-webui-colab#-colab</a></p>
+<p>C站 <a target="_blank" rel="noopener" href="https://civitai.com/">https://civitai.com/</a></p>
+<p>Q:  Colab 是什么？</p>
+<p>A:  一个在线运行的Python 运行时。谷歌云提供。</p>
+</div><div class="tags"></div><div class="post-nav"><a class="pre" href="/2023/05/14/http/http-cache/">HTTP cache</a><a class="next" href="/2023/05/01/ai/index/">ai_index</a></div><div id="container"></div><link rel="stylesheet" type="text/css" href="//unpkg.com/gitalk/dist/gitalk.css"><script type="text/javascript" src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script><script type="text/javascript" src="//unpkg.com/gitalk/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+  clientID: '9d5ad13a334931713df4',
+  clientSecret: '6946544a60449c48ad4e4cd7bc1e31168636f522',
+  repo: 'gitalk-comments',
+  owner: 'xuchao996',
+  admin: ['xuchao996'],
+  id: md5(location.pathname),
+  distractionFreeMode: false
+})
+gitalk.render('container')
+</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://example.com"/></form></div><div class="widget"><div class="author-info"><a class="info-avatar" href="/about/" title="About"><img src="/img/avatar.png"/></a><p>To be a better man.</p><a class="info-icon" href="https://twitter.com/username" title="Twitter" target="_blank" style="margin-inline:5px"> <i class="fa fa-twitter-square" style="margin-inline:5px"></i></a><a class="info-icon" href="mailto:admin@domain.com" title="Email" target="_blank" style="margin-inline:5px"> <i class="fa fa-envelope-square" style="margin-inline:5px"></i></a><a class="info-icon" href="https://github.com/xuchao996" title="Github" target="_blank" style="margin-inline:5px"> <i class="fa fa-github-square" style="margin-inline:5px"></i></a><a class="info-icon" href="atom.xml" title="RSS" target="_blank" style="margin-inline:5px"> <i class="fa fa-rss-square" style="margin-inline:5px"></i></a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Csharp/">Csharp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/other/">other</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/">react</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2023/05/18/typescript/12%E6%B3%9B%E5%9E%8B/">ts 中的泛型</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/05/18/typescript/15%E5%AF%B9%E8%B1%A1%E7%B1%BB%E5%9E%8B/">typescript/15对象类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/05/18/typescript/16class/">typescript/16class</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/05/18/typescript/17tsconfigjson/">17tsconfigjson</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/05/18/typescript/18type_operator/">type operator</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/05/18/typescript/19ts-challendge/">typescript/19ts-challendge</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/05/18/typescript/1%E7%B1%BB%E5%9E%8B%E6%93%A6%E9%99%A4%E6%98%AF%E4%BB%80%E4%B9%88/">typescript/1类型擦除是什么</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/05/18/typescript/2%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8Ctypescript/">typescript/2如何运行typescript</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/05/18/typescript/3%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95typescript/">typescript/3如何调试typescript</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/05/18/typescript/4%E6%8E%A8%E8%8D%90/">typescript/4推荐</a></li></ul></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2023 <a href="/." rel="nofollow">徐的个人网站.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/latest/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/latest/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js?v=1.0.0" successtext="Copy Successed!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css?v=1.0.0"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>
