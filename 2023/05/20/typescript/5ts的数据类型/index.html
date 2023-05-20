@@ -1,0 +1,188 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="生活、笔记、其他"><title> | 徐的个人网站</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/latest/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/latest/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/latest/grids-responsive-min.min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/latest/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/latest/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/latest/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/latest/toastr.min.css"><meta name="generator" content="Hexo 6.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">徐的个人网站</h1><a id="logo" href="/.">徐的个人网站</a><p class="description">记录一个人，爱一个人</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/about/"><i class="fa fa-user"> About</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title"></h1><div class="post-meta">2023-05-20</div><div class="post-content"><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>null</td>
+<td>js提供，ts继承了过来</td>
+<td>非对象类型</td>
+</tr>
+<tr>
+<td>undefined</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>string</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>number</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>boolean</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>bigint</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>symbol</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>object(Array Function Date，&#x3D;&#x3D;&#x3D;) turple</td>
+<td></td>
+<td>对象类型</td>
+</tr>
+<tr>
+<td>void</td>
+<td>ts 扩展</td>
+<td>ts扩展类型</td>
+</tr>
+<tr>
+<td>never</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>enum</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>unknown</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>any</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td>关键字</td>
+<td></td>
+</tr>
+<tr>
+<td>interface</td>
+<td>关键字</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>理解 <strong>TS</strong> 类型</p>
+<p>js里的类型和值</p>
+<p>而ts只有类型，没有值。</p>
+<p>包装对象</p>
+<p>包装和拆包</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = <span class="number">123</span>;</span><br><span class="line">a.<span class="title function_">toFixed</span>(<span class="number">2</span>); <span class="comment">// &#x27;123.00&#x27;</span></span><br><span class="line"><span class="comment">// a作为number类型为啥会有toFixed 的方法，这是因为其引擎内部做了装箱和拆箱的操作</span></span><br><span class="line">temp = <span class="keyword">new</span> <span class="title class_">Number</span>(<span class="number">123</span>);</span><br><span class="line">curr = temp.<span class="title function_">toFixed</span>(<span class="number">2</span>)</span><br><span class="line">temp = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">return</span> curr;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>非对象类型可以直接使用。</p>
+<p>对象类型分类</p>
+<p>​	<a href="./6%E7%B4%A2%E5%BC%95%E7%AD%BE%E5%90%8D.md">Array</a>（不直接用，一般用在定义泛型上）</p>
+<p>​	<a href="./6%E7%B4%A2%E5%BC%95%E7%AD%BE%E5%90%8D.md">Object</a>（一般不用，不够精确）</p>
+<p>​	Function （一般不用，不够精确）</p>
+<p>​	…其他类型基本可使用</p>
+<p><strong>包装类型</strong>（number，string，boolean）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">01  let a : boolean = new Boolean(1) ;  //错误</span><br><span class="line">02  let b : boolean = Boolean(1) ;      //正确</span><br></pre></td></tr></table></figure>
+
+<p>在TypeScript中，Number、String和Boolean分别是number、string和boolean的封装对象。</p>
+<p><strong>number</strong></p>
+<p>JS&#x2F;TS 只有一种类型去表示数值。就是<strong>number</strong>。</p>
+<p>整数（10进制数） 100</p>
+<p>浮点数 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let fl = 12.001;</span><br></pre></td></tr></table></figure>
+
+<p>2进制数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x2 = <span class="number">0b10110</span>;</span><br></pre></td></tr></table></figure>
+
+<p>8进制数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x8 = <span class="number">0o744</span>;</span><br></pre></td></tr></table></figure>
+
+<p>16进制数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x16 = <span class="number">0x111b</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>正是因为没有区分多种数字类型，所以一般牵扯到小数计算会产生精度丢失问题。转为<strong>整数</strong>类型可解。</p>
+<p><strong>string（字符串）</strong></p>
+<p>一般用单引号或者双引号包裹的字符可以声明为字符串，js&#x2F;ts 里只有字符串。还可以用模板字符串去表示（模板字符串是ECMAScript 6 之后提供的表示字符串的能力）。</p>
+<p><strong>boolean</strong></p>
+<p>一般只包含2个值（false， true），表示条件的结果，非正即假。</p>
+<p><a href="./10%E6%9E%9A%E4%B8%BE.md"><strong>enum（枚举）</strong></a></p>
+<p><strong>never</strong> </p>
+<p>所有类型（包括null, undefined）的子类型，所以可以赋值给任何类型。</p>
+<p><strong><a href="./9any%E5%92%8Cunknown%E7%9A%84%E5%8C%BA%E5%88%AB.md">any 与 unknown</a></strong></p>
+<p><strong>symbol</strong></p>
+<p><strong>交叉类型</strong>&amp;</p>
+<blockquote>
+<p>将多个类型合为一个类型。可以使用每个类型的独有类型。</p>
+</blockquote>
+<p><strong>Union 类型 |</strong></p>
+<blockquote>
+<p>Union 后的类型，不确定是哪一个类型的时候，只能使用其共有类型，使用独有类型会报错。</p>
+</blockquote>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">``</span><span class="string">`</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">**类型别名**</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&gt; 用来给对象类型和联合类型命名</span></span><br><span class="line"><span class="string">&gt;</span></span><br><span class="line"><span class="string">&gt; 理解为变量表达式的命名；</span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure>
+<p>type A &#x3D; {[string] : “a” | “b” | “c”}<br>interface A {<br>    [k: string]: “a” | “b” | “c”;<br>}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">与interface的区别：</span><br><span class="line"></span><br><span class="line">- type A 的类型 是 *&quot;a&quot; | &quot;b&quot; | &quot;c&quot;* ，interface A 的类型真的是A。</span><br><span class="line"></span><br><span class="line">[handbook关于两者区别的描述](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- **interface 可以重复赋值**</span><br><span class="line"></span><br><span class="line">例如在给全局变量Window 添加属性声明时；window是lib.d.ts上声明的文件，但是有时需要挂一些自定义的变量，不然ts会报错。</span><br><span class="line"></span><br><span class="line">```ts</span><br><span class="line">declare interface Window &#123;</span><br><span class="line">  getParam: &#123; [k: string]: any &#125;</span><br><span class="line">  webkit: &#123; [k: string]: any &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="类型断言"><a href="#类型断言" class="headerlink" title="类型断言"></a><a href="./11%E6%96%AD%E8%A8%80.md">类型断言</a></h4><p><strong>数组与元组</strong></p>
+<p>元组是数组的一个子集，一般是一个规定长度规定每个元素类型的数据结构。</p>
+<p>具有以下特点：</p>
+<ul>
+<li><p>元组的数据类型可以是任何类型。　</p>
+</li>
+<li><p>在元组中，可以包含其他元组。　</p>
+</li>
+<li><p>元组可以是空元组。　</p>
+</li>
+<li><p>元组赋值必须元素类型兼容。　</p>
+</li>
+<li><p>元组的取值同数组的取值，元素的标号从0开始。　</p>
+</li>
+<li><p>元组可以作为参数传递给函数。</p>
+</li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">tuple1</span>: [<span class="built_in">number</span>, <span class="built_in">string</span>, <span class="built_in">boolean</span>] = [<span class="number">1</span>,<span class="string">&#x27;&#x27;</span>, <span class="literal">false</span>]; <span class="comment">// tuple1 type =&gt; [number, string, boolean];</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>但如果依赖类型推导，那么会和预想的结果不一致。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> tuple2 = [<span class="number">1</span>,<span class="string">&#x27;&#x27;</span>, <span class="literal">false</span>]; <span class="comment">// tuple2 type =&gt; &lt;stirng|number|boolean&gt;Array</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>会是一个联合类型的数组类型。这是一个需要<strong>注意</strong>的点。</p>
+<p>元组的获取元素与数组相同，都是通过下标进行访问。</p>
+<p>元组的常见问题；</p>
+<ul>
+<li>越界（越界会报错）</li>
+</ul>
+<p>​	不能访问超过tuple.length的元素</p>
+<p>​	元组解构超过tuple.length </p>
+<p>​	</p>
+</div><div class="tags"></div><div class="post-nav"><a class="pre" href="/2023/05/20/typescript/4%E6%8E%A8%E8%8D%90/"></a><a class="next" href="/2023/05/20/typescript/8%E5%85%B6%E4%BB%96%E5%AF%B9%E8%B1%A1/"></a></div><div id="container"></div><link rel="stylesheet" type="text/css" href="//unpkg.com/gitalk/dist/gitalk.css"><script type="text/javascript" src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script><script type="text/javascript" src="//unpkg.com/gitalk/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+  clientID: '9d5ad13a334931713df4',
+  clientSecret: '6946544a60449c48ad4e4cd7bc1e31168636f522',
+  repo: 'gitalk-comments',
+  owner: 'xuchao996',
+  admin: ['xuchao996'],
+  id: md5(location.pathname),
+  distractionFreeMode: false
+})
+gitalk.render('container')
+</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://example.com"/></form></div><div class="widget"><div class="author-info"><a class="info-avatar" href="/about/" title="About"><img src="/img/avatar.png"/></a><p>To be a better man.</p><a class="info-icon" href="https://twitter.com/username" title="Twitter" target="_blank" style="margin-inline:5px"> <i class="fa fa-twitter-square" style="margin-inline:5px"></i></a><a class="info-icon" href="mailto:admin@domain.com" title="Email" target="_blank" style="margin-inline:5px"> <i class="fa fa-envelope-square" style="margin-inline:5px"></i></a><a class="info-icon" href="https://github.com/xuchao996" title="Github" target="_blank" style="margin-inline:5px"> <i class="fa fa-github-square" style="margin-inline:5px"></i></a><a class="info-icon" href="atom.xml" title="RSS" target="_blank" style="margin-inline:5px"> <i class="fa fa-rss-square" style="margin-inline:5px"></i></a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Csharp/">Csharp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/other/">other</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/">react</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/react-fiber/">react, fiber</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2023/05/20/react/react_hooks(2)/">react/react_hooks(2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/05/20/Mac%E8%BE%93%E5%87%BAtree/">Mac 输出tree结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/05/20/csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/07%E7%B1%BB%E5%92%8C%E7%BB%A7%E6%89%BF/">07 类和继承</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/05/20/csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/08%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/">表达式和运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/05/20/deeplearning/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">线性代数</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/05/20/javacript/JavaScript%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6/">javacript/JavaScript逻辑运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/05/20/react/react%20%E7%9A%84%20css/">react/react 的 css</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/05/20/react/react_hooks(1)/">react/react_hooks(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/05/20/react/react%E7%96%91%E9%97%AE/">react 疑问</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/05/20/react/redux/">redux 简单实战</a></li></ul></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2023 <a href="/." rel="nofollow">徐的个人网站.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/latest/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/latest/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js?v=1.0.0" successtext="Copy Successed!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css?v=1.0.0"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>
