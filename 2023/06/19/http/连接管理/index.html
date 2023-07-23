@@ -1,0 +1,53 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="生活、笔记、其他"><title>HTTP连接管理 | 徐的个人网站</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/latest/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/latest/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/latest/grids-responsive-min.min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/latest/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/latest/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/latest/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/latest/toastr.min.css"><meta name="generator" content="Hexo 6.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">HTTP连接管理</h1><a id="logo" href="/.">徐的个人网站</a><p class="description">记录一个人，爱一个人</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/about/"><i class="fa fa-user"> About</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">HTTP连接管理</h1><div class="post-meta">2023-06-19</div><div class="post-content"><h1 id="TCP-连接"><a href="#TCP-连接" class="headerlink" title="TCP 连接"></a>TCP 连接</h1><ol>
+<li>查询目标IP地址和端口号</li>
+<li>发起TCP连接</li>
+<li>浏览器发送请求报文</li>
+<li>浏览器接收响应报文</li>
+<li>浏览器断开TCP连接</li>
+</ol>
+<blockquote>
+<p>上述的这些操作被称为一次 <strong>HTTP 事务</strong>。</p>
+</blockquote>
+<h2 id="HTTP-over-TCP-over-IP"><a href="#HTTP-over-TCP-over-IP" class="headerlink" title="HTTP over TCP over IP"></a>HTTP over TCP over IP</h2><h2 id="TCP-连接的四个值"><a href="#TCP-连接的四个值" class="headerlink" title="TCP 连接的四个值"></a>TCP 连接的四个值</h2><ul>
+<li>源IP</li>
+<li>源端口</li>
+<li>目标IP</li>
+<li>目标端口<br>这四个值定义了一个TCP连接。<br>在浏览器中的一次http请求中，会产生一次TCP连接。</li>
+</ul>
+<h2 id="TCP-的连接优化"><a href="#TCP-的连接优化" class="headerlink" title="TCP 的连接优化"></a>TCP 的连接优化</h2><h3 id="并行连接"><a href="#并行连接" class="headerlink" title="并行连接"></a>并行连接</h3><blockquote>
+<p>同一个页面可以并行上百个请求，受限于客户端的带宽，一般不会超过6个。同时也要考虑服务器的并发数。<br>一般认为，并行连接，不太能优化连接，反而会增加连接的开销。</p>
+</blockquote>
+<h3 id="持久化连接"><a href="#持久化连接" class="headerlink" title="持久化连接"></a>持久化连接</h3><blockquote>
+<p>取决于浏览器多次请求同一个站点访问。HTTP&#x2F;1.1 允许HTTP设备在事务处理之后，仍保持TCP连接状态。为下次的相同连接做准备。下一次的HTTP请求中会复用这个TCP连接。<br>需要注意的是，持久化连接持续的时间是需要控制的，不能在没有连接时，还在做持久化连接。这样会影响性能。</p>
+</blockquote>
+<ul>
+<li>持久以及并行连接<blockquote>
+<p>一般认为，并行连接，不太能优化连接，反而会增加连接的开销。<br>持久化连接是可以优化性能的。</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/xuchao996/gallary@main/imgs/202306191420689.png"></p>
+<h4 id="keep-alive-规范"><a href="#keep-alive-规范" class="headerlink" title="keep-alive 规范"></a>keep-alive 规范</h4><h4 id="HTTP-x2F-1-0-中的持久化连接"><a href="#HTTP-x2F-1-0-中的持久化连接" class="headerlink" title="HTTP&#x2F;1.0 中的持久化连接"></a>HTTP&#x2F;1.0 中的持久化连接</h4><p>早期的HTTP协议（HTTP&#x2F;1.0）中，实现了connection keepalive，将一条连接保持再打开状态。<br>server 对当前请求进行响应且在响应头中添加 <code>Connection: keep-alive</code>，这个响应头告诉客户端，当前连接可以保持打开状态。而没有这个首部的话，客户端会在之后关闭连接。</p>
+<h4 id="Keep-Alive-的选项"><a href="#Keep-Alive-的选项" class="headerlink" title="Keep-Alive 的选项"></a>Keep-Alive 的选项</h4><p>keep-alive 可以有多种行为，这个是通过选项控制的。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Connection: keep-alive</span><br><span class="line">Keep-Alive: timeout=5, max=1000</span><br></pre></td></tr></table></figure>
+<ul>
+<li>timeout: 服务器在发送完响应后，保持连接打开的时间。</li>
+<li>max: 服务器允许的最大请求数量。</li>
+</ul>
+<h4 id="HTTP-x2F-1-1-中的持久化连接"><a href="#HTTP-x2F-1-1-中的持久化连接" class="headerlink" title="HTTP&#x2F;1.1 中的持久化连接"></a>HTTP&#x2F;1.1 中的持久化连接</h4><p>HTTP&#x2F;1.1 取消了keep-alive 的支持。采用了 持久连接（persistent connection）。HTTP&#x2F;1.1在默认情况下是支持的。<br>当发送 <code>Connection close</code> 代表着当前连接关闭。</p>
+<h3 id="管道化连接"><a href="#管道化连接" class="headerlink" title="管道化连接"></a>管道化连接</h3><p>HTTP&#x2F;1.1 允许在持久化的基础上可选的使用管道。这代表着，如果要使用管道必须要在持久化的基础上。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xuchao996/gallary@main/imgs/202306191622613.png" alt="普通连接、持久化连接和管道化连接"></p>
+<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://book.douban.com/subject/10746113/">HTTP权威指南</a></li>
+</ul>
+</div><div class="tags"></div><div class="post-nav"><a class="pre" href="/2023/06/19/http/HTTP%E6%8A%A5%E6%96%87/">http-报文</a><a class="next" href="/2023/05/20/http/%E9%A6%96%E9%83%A8/">http-header</a></div><div id="container"></div><link rel="stylesheet" type="text/css" href="//unpkg.com/gitalk/dist/gitalk.css"><script type="text/javascript" src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script><script type="text/javascript" src="//unpkg.com/gitalk/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+  clientID: '9d5ad13a334931713df4',
+  clientSecret: '6946544a60449c48ad4e4cd7bc1e31168636f522',
+  repo: 'gitalk-comments',
+  owner: 'xuchao996',
+  admin: ['xuchao996'],
+  id: md5(location.pathname),
+  distractionFreeMode: false
+})
+gitalk.render('container')
+</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://example.com"/></form></div><div class="widget"><div class="author-info"><a class="info-avatar" href="/about/" title="About"><img src="/img/avatar.png"/></a><p>To be a better man.</p><a class="info-icon" href="https://twitter.com/username" title="Twitter" target="_blank" style="margin-inline:5px"> <i class="fa fa-twitter-square" style="margin-inline:5px"></i></a><a class="info-icon" href="mailto:admin@domain.com" title="Email" target="_blank" style="margin-inline:5px"> <i class="fa fa-envelope-square" style="margin-inline:5px"></i></a><a class="info-icon" href="https://github.com/xuchao996" title="Github" target="_blank" style="margin-inline:5px"> <i class="fa fa-github-square" style="margin-inline:5px"></i></a><a class="info-icon" href="atom.xml" title="RSS" target="_blank" style="margin-inline:5px"> <i class="fa fa-rss-square" style="margin-inline:5px"></i></a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Csharp/">Csharp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/other/">other</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/">react</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/react-fiber/">react, fiber</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2023/07/23/react/react_hooks(2)/">react/react_hooks(2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/07/23/javacript/JavaScript%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6/">javacript/JavaScript逻辑运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/07/23/react/react%20%E7%9A%84%20css/">react/react 的 css</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/07/23/react/react_hooks(1)/">react/react_hooks(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/07/23/react/react%E7%96%91%E9%97%AE/">react 疑问</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/07/23/react/redux/">redux 简单实战</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/07/23/react/%E6%95%B0%E6%8D%AE%E4%B8%8D%E5%8F%AF%E5%8F%98/">react/数据不可变</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/07/23/typescript/15%E5%AF%B9%E8%B1%A1%E7%B1%BB%E5%9E%8B/">typescript/15对象类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/07/23/typescript/16class/">typescript/16class</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/07/23/typescript/17tsconfigjson/">17tsconfigjson</a></li></ul></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2023 <a href="/." rel="nofollow">徐的个人网站.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/latest/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/latest/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js?v=1.0.0" successtext="Copy Successed!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css?v=1.0.0"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>
